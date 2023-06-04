@@ -5,10 +5,9 @@ public class CuentaAhorro extends Cuenta {
     private String TitularDeLaCuenta;
     private float tasaInteres;
     //constructor hacia el padre
-    public CuentaAhorro (int numeroCuenta, long saldo, long saldoDolares,String TitularDeLaCuenta,float tasaInteres) {
+    public CuentaAhorro (int numeroCuenta, long saldo, long saldoDolares,String TitularDeLaCuenta) {
         super(numeroCuenta,saldo,saldoDolares);
        this.TitularDeLaCuenta=TitularDeLaCuenta;
-       this.tasaInteres= tasaInteres;
     }
     //getter
     public String getTitularDeLaCuenta() {

@@ -51,6 +51,7 @@ public class Cuenta {
     }
     
     public void giro(long monto){
+        
         this.saldo = saldo - monto;
     }
     
@@ -64,9 +65,15 @@ public class Cuenta {
     
     //En progreso(sin terminar) tieneNumeroDeCuenta
     public boolean tieneNumeroDeCuenta(int numero){
-        //Si se cumple retornara True y si no False
-        return numero > 0 && numero <= 999999999;
+        for (Cuenta cuenta : UsaCajero.cuentas) {
+            if (cuenta != null && cuenta.getNumeroCuenta() == numero) {
+                return true; // El número de cuenta existe
+        }
     }
+        return false; // El número de cuenta no existe
+    
+    }
+      
     
     @Override
     public String toString(){

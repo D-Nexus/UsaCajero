@@ -16,21 +16,25 @@ public class UsaCajero {
         int opcion = 0;
         int numeroDeCuenta = 0;
         long monto = 0;
+        String limite;
         
         //Entrada por teclado
         Scanner entrada = new Scanner(System.in);
         
         //Cuentas
-        cuentas[0] = new Cuenta(123456789,10000,20000);
-        cuentas[1] = new Cuenta(222222222,5000,10000);
-        cuentas[2] = new Cuenta(333333333,2000,4000);
+        cuentas[0] = new CuentaRut(123456789,10000,20000);
+        cuentas[1] = new CuentaCorriente(222222222,5000,10000,2);
+        cuentas[2] = new CuentaAhorro(333333333,2000,4000,"Alan");
         
         //Usar las funcionalidades de los cajeros(Humano,Maquina)
         
         //CajeroHumano
         CajeroHumano cajero1 = new CajeroHumano(198361216, "Alan");
         //CajeroMaquina
-        CajeroMaquina cajero2 = new CajeroMaquina("F-456",1500000);   
+        CajeroMaquina cajero2 = new CajeroMaquina("F-456",1500000);
+        
+        //Comprobación metodo tieneNumeroDeCuenta
+        //System.out.println(cuentas[0].tieneNumeroDeCuenta(cuentas[0].getNumeroCuenta()));
         
         while (opcion != 3) {
             
@@ -66,30 +70,56 @@ public class UsaCajero {
                         case 1 -> {
                             System.out.println("OPCION DEPOSITAR ");
                             System.out.println("Ingrese el numero de cuenta: ");
-                            numeroDeCuenta = Integer.parseInt(entrada.nextLine());
-                            System.out.println("Ingrese el monto: ");
-                            monto = Long.parseLong(entrada.nextLine());
-                            cajero1.deposita(numeroDeCuenta ,monto);
-                            System.out.println("");
+                            //Verificación de no exeder el valor maximo de int
+                            limite = entrada.nextLine();
+                            if(limite.length() <= 9){ 
+                                numeroDeCuenta = Integer.parseInt(limite); 
+                                System.out.println("Ingrese el monto: ");
+                                monto = Long.parseLong(entrada.nextLine());
+                                cajero1.deposita(numeroDeCuenta ,monto);
+                                System.out.println("");
+                            }
+                            else { 
+                                System.out.println("ERROR: Maximo 9 digitos en el numero de cuenta" ); 
+                                System.out.println("");
+                            } 
+                            
                         }
                         case 2 -> {
                             System.out.println("OPCION GIRAR ");
                             System.out.println("Ingrese el numero de cuenta: ");
-                            numeroDeCuenta = Integer.parseInt(entrada.nextLine());
-                            System.out.println("Ingrese el monto: ");
-                            monto = Long.parseLong(entrada.nextLine());
-                            cajero1.giro(numeroDeCuenta, monto);
-                            System.out.println("");
+                            //Verificación de no exeder el valor maximo de int
+                            limite = entrada.nextLine();
+                            if(limite.length() <= 9){ 
+                                numeroDeCuenta = Integer.parseInt(limite); 
+                                System.out.println("Ingrese el monto: ");
+                                monto = Long.parseLong(entrada.nextLine());
+                                cajero1.giro(numeroDeCuenta ,monto);
+                                System.out.println("");
+                            }
+                            else { 
+                                System.out.println("ERROR: Maximo 9 digitos en el numero de cuenta" ); 
+                                System.out.println("");
+                            } 
                         }
                         case 3 -> {
                             System.out.println("OPCION OBTENER SALDO ");
                             System.out.println("Ingrese el numero de cuenta: ");
-                            numeroDeCuenta = Integer.parseInt(entrada.nextLine());
-                            saldo = cajero1.obtieneSaldo(numeroDeCuenta);
-                            if (saldo > -1){
+                            //Verificación de no exeder el valor maximo de int
+                            limite = entrada.nextLine();
+                            if(limite.length() <= 9){ 
+                                numeroDeCuenta = Integer.parseInt(limite);
+                                saldo = cajero1.obtieneSaldo(numeroDeCuenta);
+                                if (saldo > -1){
                                 System.out.println("El saldo de la cuenta ["+numeroDeCuenta+"] es ["+saldo+"]");
                                 System.out.println("");
+                                }
                             }
+                            else { 
+                                System.out.println("ERROR: Maximo 9 digitos en el numero de cuenta" ); 
+                                System.out.println("");
+                            } 
+                            
                         }
                         case 4 -> {}
                         default -> { System.out.println("Error: Opcion invalida"); }
@@ -115,28 +145,52 @@ public class UsaCajero {
                         case 1 -> {
                             System.out.println("OPCION DEPOSITAR ");
                             System.out.println("Ingrese el numero de cuenta: ");
-                            numeroDeCuenta = Integer.parseInt(entrada.nextLine());
-                            System.out.println("Ingrese el monto: ");
-                            monto = Long.parseLong(entrada.nextLine());
-                            cajero2.deposita(numeroDeCuenta ,monto);
-                            System.out.println("");
+                            //Verificación de no exeder el valor maximo de int
+                            limite = entrada.nextLine();
+                            if(limite.length() <= 9){ 
+                                numeroDeCuenta = Integer.parseInt(limite); 
+                                System.out.println("Ingrese el monto: ");
+                                monto = Long.parseLong(entrada.nextLine());
+                                cajero2.deposita(numeroDeCuenta ,monto);
+                                System.out.println("");
+                            }
+                            else { 
+                                System.out.println("ERROR: Maximo 9 digitos en el numero de cuenta" ); 
+                                System.out.println("");
+                            }
                         }
                         case 2 -> {
                             System.out.println("OPCION GIRAR ");
                             System.out.println("Ingrese el numero de cuenta: ");
-                            numeroDeCuenta = Integer.parseInt(entrada.nextLine());
-                            System.out.println("Ingrese el monto: ");
-                            monto = Long.parseLong(entrada.nextLine());
-                            cajero2.giro(numeroDeCuenta, monto);
-                            System.out.println("");
+                            //Verificación de no exeder el valor maximo de int
+                            limite = entrada.nextLine();
+                            if(limite.length() <= 9){ 
+                                numeroDeCuenta = Integer.parseInt(limite); 
+                                System.out.println("Ingrese el monto: ");
+                                monto = Long.parseLong(entrada.nextLine());
+                                cajero2.giro(numeroDeCuenta ,monto);
+                                System.out.println("");
+                            }
+                            else { 
+                                System.out.println("ERROR: Maximo 9 digitos en el numero de cuenta" ); 
+                                System.out.println("");
+                            } 
                         }
                         case 3 -> {
                             System.out.println("OPCION OBTENER SALDO ");
                             System.out.println("Ingrese el numero de cuenta: ");
-                            numeroDeCuenta = Integer.parseInt(entrada.nextLine());
-                            saldo = cajero2.obtieneSaldo(numeroDeCuenta);
-                            if (saldo > -1){
+                            //Verificación de no exeder el valor maximo de int
+                            limite = entrada.nextLine();
+                            if(limite.length() <= 9){ 
+                                numeroDeCuenta = Integer.parseInt(limite);
+                                saldo = cajero2.obtieneSaldo(numeroDeCuenta);
+                                if (saldo > -1){
                                 System.out.println("El saldo de la cuenta ["+numeroDeCuenta+"] es ["+saldo+"]");
+                                System.out.println("");
+                                }
+                            }
+                            else { 
+                                System.out.println("ERROR: Maximo 9 digitos en el numero de cuenta" ); 
                                 System.out.println("");
                             }
                             
