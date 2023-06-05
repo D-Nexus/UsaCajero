@@ -3,6 +3,7 @@ package tarea3.usacajero;
 public class CuentaAhorro extends Cuenta {
     //variables
     static int girosPermitidosAño = 9;
+    long limiteGiroDiario = 1000000;
     //atributo
     private String TitularDeLaCuenta;
     private double tasaInteresAnual;
@@ -43,18 +44,20 @@ public class CuentaAhorro extends Cuenta {
     public void giro(long monto){
         if(girosPermitidosAño != 0 ){
             if(getSaldo() == 0 || (getSaldo() - monto) < 0){
-                System.out.println("Saldo insuficiente");
+                if(limiteGiroDiario == 0){ System.out.println("Maximo limite de giro diario alcanzado"); } 
+                else{ System.out.println("Saldo insuficiente"); }
             }
             else{
-                if(monto >= 1 && monto <=1000000){
+                if(monto >= 1 && monto <= limiteGiroDiario){
                     long saldoNuevo = getSaldo();
                     saldoNuevo = saldoNuevo - monto;
                     setSaldo(saldoNuevo);
                     girosPermitidosAño = girosPermitidosAño - 1;
+                    limiteGiroDiario = limiteGiroDiario - monto;
                     System.out.println("Tarea completada");
                 }
                 else{
-                    System.out.println("Error: El monto maximo de giro es de 200.000 pesos");
+                    System.out.println("Error: El monto maximo de giro es de ["+limiteGiroDiario+"]");
                     System.out.println("");
                 }
             }

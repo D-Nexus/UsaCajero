@@ -2,8 +2,8 @@ package tarea3.usacajero;
 
 public class CuentaVista extends Cuenta {
     // Atributos
-    private long limiteSaldo = 5000000; // Límite de saldo en pesos
-    private long limiteGiro = 400000; // Límite de giro en pesos
+    private long limiteSaldoDiario = 5000000; // Límite de saldo en pesos
+    private long limiteGiroDiario = 400000; // Límite de giro en pesos
     
     // Constructor
     public CuentaVista(int numeroCuenta, long saldo, long saldoDolares) {
@@ -13,13 +13,13 @@ public class CuentaVista extends Cuenta {
     // Método para realizar un giro
     @Override
     public void giro(long monto) {
-        if (monto <= getSaldo() && monto < limiteGiro) {
+        if (monto <= getSaldo() && monto < limiteGiroDiario) {
             // Realizar el giro
             long nuevoSaldo = getSaldo() - monto;
             setSaldo(nuevoSaldo);
             
             // Restar el monto del giro al límite de giro
-            limiteGiro -= monto;
+            limiteGiroDiario -= monto;
             
             System.out.println("Tarea completada");
         } else if(monto>getSaldo()){System.out.println("El monto del giro excede el monto disponible.");}
@@ -32,7 +32,7 @@ public class CuentaVista extends Cuenta {
     // Método para realizar un depósito
     @Override
     public void deposita(long monto) {
-        if (monto + getSaldo() <= limiteSaldo) {
+        if (monto + getSaldo() <= limiteSaldoDiario) {
             // Realizar el depósito
             long nuevoSaldo = getSaldo() + monto;
             setSaldo(nuevoSaldo);        
@@ -44,19 +44,19 @@ public class CuentaVista extends Cuenta {
     
     // Getters y Setters
     public long getLimiteSaldo() {
-        return limiteSaldo;
+        return limiteSaldoDiario;
     }
     
     public void setLimiteSaldo(long limiteSaldo) {
-        this.limiteSaldo = limiteSaldo;
+        this.limiteSaldoDiario = limiteSaldo;
     }
     
     public long getLimiteGiro() {
-        return limiteGiro;
+        return limiteGiroDiario;
     }
     
     public void setLimiteGiro(long limiteGiro) {
-        this.limiteGiro = limiteGiro;
+        this.limiteGiroDiario = limiteGiro;
     }
 }
 
