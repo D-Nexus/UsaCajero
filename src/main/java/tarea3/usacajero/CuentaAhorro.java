@@ -51,6 +51,7 @@ public class CuentaAhorro extends Cuenta {
                     saldoNuevo = saldoNuevo - monto;
                     setSaldo(saldoNuevo);
                     girosPermitidosAño = girosPermitidosAño - 1;
+                    System.out.println("Tarea completada");
                 }
                 else{
                     System.out.println("Error: El monto maximo de giro es de 200.000 pesos");

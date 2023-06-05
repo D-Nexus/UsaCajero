@@ -21,7 +21,7 @@ public class CuentaRut extends Cuenta {
             // Restar el monto del giro al límite de giro
             limiteGiro -= monto;
             
-            System.out.println("Se ha realizado el giro de $" + monto);
+            System.out.println("Tarea completada");
         } else if(monto>getSaldo()){System.out.println("El monto del giro excede el monto disponible.");}
         
         else {
@@ -35,9 +35,8 @@ public class CuentaRut extends Cuenta {
         if (monto + getSaldo() <= limiteSaldo) {
             // Realizar el depósito
             long nuevoSaldo = getSaldo() + monto;
-            setSaldo(nuevoSaldo);
-            
-            System.out.println("Se ha realizado el depósito de $" + monto);
+            setSaldo(nuevoSaldo);      
+            System.out.println("Tarea completada");
         } else {
             System.out.println("El monto del depósito excede el límite de saldo.");
         }

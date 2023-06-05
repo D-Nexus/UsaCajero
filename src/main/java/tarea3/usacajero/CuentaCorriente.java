@@ -28,6 +28,7 @@ public class CuentaCorriente extends Cuenta{
                 long saldoNuevo = getSaldo();
                 saldoNuevo = saldoNuevo - monto;
                 setSaldo(saldoNuevo);
+                System.out.println("Tarea completada");
             }
             else{
                 System.out.println("Error: El monto maximo de giro es de 200.000 pesos");
