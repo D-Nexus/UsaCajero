@@ -17,16 +17,9 @@ public class CuentaCorriente extends Cuenta{
     public void setTitularDeLaCuenta(String TitularDeLaCuenta) {
         this.TitularDeLaCuenta = TitularDeLaCuenta;
     }
-
+    
     //metodo
     public void emitirCheques (int numeroCuenta, String nombreBeneficiario, String fecha, long monto, String nombreBanco){
-        System.out.println("Emitiendo Cheque con los siguientes datos: ");
-        System.out.println("Nombre del beneficiario ["+nombreBeneficiario+"]");
-        System.out.println("Fecha ["+fecha+"]");
-        System.out.println("Monto ["+monto+"]");
-        System.out.println("Nombre del banco ["+nombreBanco+"]");
-        System.out.println("Nombre del emisor del cheque ["+getTitularDeLaCuenta()+"], Numero de cuenta ["+numeroCuenta+"]");
-        
         //Retiramos el dinero destinado al cheque desde el saldo de la cuenta.
         
         //Verificación en caso de no existir el numero de cuenta ingresado
@@ -40,6 +33,13 @@ public class CuentaCorriente extends Cuenta{
             
             //Comparar numeros de cuentas y depositar en la cuenta correspondiente
             if(cuenta.getNumeroCuenta() == numeroCuenta){
+                System.out.println("Emitiendo Cheque con los siguientes datos: ");
+                System.out.println("Nombre del beneficiario ["+nombreBeneficiario+"]");
+                System.out.println("Fecha ["+fecha+"]");
+                System.out.println("Monto ["+monto+"]");
+                System.out.println("Nombre del banco ["+nombreBanco+"]");
+                System.out.println("Nombre del emisor del cheque ["+getTitularDeLaCuenta()+"], Numero de cuenta ["+numeroCuenta+"]");
+                System.out.println("");
                 cuenta.giro(monto);
                 numeroDeCuentaExiste = true;
                 break;

@@ -24,7 +24,7 @@ public class UsaCajero {
         //Cuentas
         cuentas[0] = new CuentaRut(123456789,10000,20000);
         cuentas[1] = new CuentaCorriente(222222222,5000,10000,"Michelle");
-        cuentas[2] = new CuentaAhorro(333333333,2000,4000,"Alan");
+        cuentas[2] = new CuentaAhorro(333333333,2000,4000,"Alan",0.01);
         
         //Usar las funcionalidades de los cajeros(Humano,Maquina)
         
@@ -33,9 +33,15 @@ public class UsaCajero {
         //CajeroMaquina
         CajeroMaquina cajero2 = new CajeroMaquina("F-456",1500000);
         
+        //Comprobaciones de metodos cuentas
+        
         //Comprobación metodo tieneNumeroDeCuenta
         //System.out.println(cuentas[0].tieneNumeroDeCuenta(cuentas[0].getNumeroCuenta()));
         
+        //Polimorfismo y comprobacion del metodo de CuentaCorriente emitirCheques
+        //((CuentaCorriente) cuentas[1]).emitirCheques(222222222,"Sebastian", "19-05-2023", 300, "Banco estado");
+        
+        //Programa Principal
         while (opcion != 3) {
             
             //Menu Principal
