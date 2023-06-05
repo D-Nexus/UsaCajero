@@ -16,14 +16,14 @@ public class UsaCajero {
         int opcion = 0;
         int numeroDeCuenta = 0;
         long monto = 0;
-        String limite;
+        String limiteDigitos;
         
         //Entrada por teclado
         Scanner entrada = new Scanner(System.in);
         
         //Cuentas
         cuentas[0] = new CuentaRut(123456789,10000,20000);
-        cuentas[1] = new CuentaCorriente(222222222,5000,10000,2);
+        cuentas[1] = new CuentaCorriente(222222222,5000,10000,"Michelle");
         cuentas[2] = new CuentaAhorro(333333333,2000,4000,"Alan");
         
         //Usar las funcionalidades de los cajeros(Humano,Maquina)
@@ -71,9 +71,9 @@ public class UsaCajero {
                             System.out.println("OPCION DEPOSITAR ");
                             System.out.println("Ingrese el numero de cuenta: ");
                             //Verificación de no exeder el valor maximo de int
-                            limite = entrada.nextLine();
-                            if(limite.length() <= 9){ 
-                                numeroDeCuenta = Integer.parseInt(limite); 
+                            limiteDigitos = entrada.nextLine();
+                            if(limiteDigitos.length() <= 9){ 
+                                numeroDeCuenta = Integer.parseInt(limiteDigitos); 
                                 System.out.println("Ingrese el monto: ");
                                 monto = Long.parseLong(entrada.nextLine());
                                 cajero1.deposita(numeroDeCuenta ,monto);
@@ -89,9 +89,9 @@ public class UsaCajero {
                             System.out.println("OPCION GIRAR ");
                             System.out.println("Ingrese el numero de cuenta: ");
                             //Verificación de no exeder el valor maximo de int
-                            limite = entrada.nextLine();
-                            if(limite.length() <= 9){ 
-                                numeroDeCuenta = Integer.parseInt(limite); 
+                            limiteDigitos = entrada.nextLine();
+                            if(limiteDigitos.length() <= 9){ 
+                                numeroDeCuenta = Integer.parseInt(limiteDigitos); 
                                 System.out.println("Ingrese el monto: ");
                                 monto = Long.parseLong(entrada.nextLine());
                                 cajero1.giro(numeroDeCuenta ,monto);
@@ -106,9 +106,9 @@ public class UsaCajero {
                             System.out.println("OPCION OBTENER SALDO ");
                             System.out.println("Ingrese el numero de cuenta: ");
                             //Verificación de no exeder el valor maximo de int
-                            limite = entrada.nextLine();
-                            if(limite.length() <= 9){ 
-                                numeroDeCuenta = Integer.parseInt(limite);
+                            limiteDigitos = entrada.nextLine();
+                            if(limiteDigitos.length() <= 9){ 
+                                numeroDeCuenta = Integer.parseInt(limiteDigitos);
                                 saldo = cajero1.obtieneSaldo(numeroDeCuenta);
                                 if (saldo > -1){
                                 System.out.println("El saldo de la cuenta ["+numeroDeCuenta+"] es ["+saldo+"]");
@@ -146,9 +146,9 @@ public class UsaCajero {
                             System.out.println("OPCION DEPOSITAR ");
                             System.out.println("Ingrese el numero de cuenta: ");
                             //Verificación de no exeder el valor maximo de int
-                            limite = entrada.nextLine();
-                            if(limite.length() <= 9){ 
-                                numeroDeCuenta = Integer.parseInt(limite); 
+                            limiteDigitos = entrada.nextLine();
+                            if(limiteDigitos.length() <= 9){ 
+                                numeroDeCuenta = Integer.parseInt(limiteDigitos); 
                                 System.out.println("Ingrese el monto: ");
                                 monto = Long.parseLong(entrada.nextLine());
                                 cajero2.deposita(numeroDeCuenta ,monto);
@@ -163,9 +163,9 @@ public class UsaCajero {
                             System.out.println("OPCION GIRAR ");
                             System.out.println("Ingrese el numero de cuenta: ");
                             //Verificación de no exeder el valor maximo de int
-                            limite = entrada.nextLine();
-                            if(limite.length() <= 9){ 
-                                numeroDeCuenta = Integer.parseInt(limite); 
+                            limiteDigitos = entrada.nextLine();
+                            if(limiteDigitos.length() <= 9){ 
+                                numeroDeCuenta = Integer.parseInt(limiteDigitos); 
                                 System.out.println("Ingrese el monto: ");
                                 monto = Long.parseLong(entrada.nextLine());
                                 cajero2.giro(numeroDeCuenta ,monto);
@@ -180,9 +180,9 @@ public class UsaCajero {
                             System.out.println("OPCION OBTENER SALDO ");
                             System.out.println("Ingrese el numero de cuenta: ");
                             //Verificación de no exeder el valor maximo de int
-                            limite = entrada.nextLine();
-                            if(limite.length() <= 9){ 
-                                numeroDeCuenta = Integer.parseInt(limite);
+                            limiteDigitos = entrada.nextLine();
+                            if(limiteDigitos.length() <= 9){ 
+                                numeroDeCuenta = Integer.parseInt(limiteDigitos);
                                 saldo = cajero2.obtieneSaldo(numeroDeCuenta);
                                 if (saldo > -1){
                                 System.out.println("El saldo de la cuenta ["+numeroDeCuenta+"] es ["+saldo+"]");

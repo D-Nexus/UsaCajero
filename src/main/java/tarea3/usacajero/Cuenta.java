@@ -53,17 +53,33 @@ public class Cuenta {
     }
     
     public void giro(long monto){
-        long saldoNuevo = getSaldo();
-        saldoNuevo = saldoNuevo - monto;
-        setSaldo(saldoNuevo);
+        if(getSaldo() == 0 || (getSaldo() - monto) < 0){
+            System.out.println("Saldo insuficiente");
+        }
+        else{
+            long saldoNuevo = getSaldo();
+            saldoNuevo = saldoNuevo - monto;
+            setSaldo(saldoNuevo);
+        }
+        
     }
     
     public void depositaDolar(long monto){
-       
+       long saldoNuevoDolares = getSaldoDolares();
+       saldoNuevoDolares = saldoNuevoDolares + (monto / 800);
+       setSaldoDolares(saldoNuevoDolares);
     }
     
     public void giroDolar(long monto){
-        
+        if(getSaldoDolares() == 0 || (getSaldoDolares() - monto) < 0){
+            System.out.println("Saldo insuficiente");
+        }
+        else{
+            long saldoNuevoDolares = getSaldoDolares();
+            saldoNuevoDolares = saldoNuevoDolares - (monto / 800);
+            setSaldoDolares(saldoNuevoDolares);
+        }
+       
     }
     
     //En progreso(sin terminar) tieneNumeroDeCuenta
