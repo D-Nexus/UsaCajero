@@ -46,13 +46,16 @@ public class Cuenta {
     
     //Metodos de clase
     public void deposita(long monto){
-        this.saldo = saldo + monto;
-        
+        long saldoNuevo = getSaldo();
+        saldoNuevo = saldoNuevo + monto;
+        setSaldo(saldoNuevo);
+        System.out.println("Metodo de cuenta sin modificar");
     }
     
     public void giro(long monto){
-        
-        this.saldo = saldo - monto;
+        long saldoNuevo = getSaldo();
+        saldoNuevo = saldoNuevo - monto;
+        setSaldo(saldoNuevo);
     }
     
     public void depositaDolar(long monto){
