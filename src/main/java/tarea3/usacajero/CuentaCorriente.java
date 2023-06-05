@@ -18,6 +18,26 @@ public class CuentaCorriente extends Cuenta{
         this.TitularDeLaCuenta = TitularDeLaCuenta;
     }
     
+    @Override
+    public void giro(long monto){
+        if(getSaldo() == 0 || (getSaldo() - monto) < 0){
+            System.out.println("Saldo insuficiente");
+        }
+        else{
+            if(monto >= 1 && monto <=500000){
+                long saldoNuevo = getSaldo();
+                saldoNuevo = saldoNuevo - monto;
+                setSaldo(saldoNuevo);
+            }
+            else{
+                System.out.println("Error: El monto maximo de giro es de 200.000 pesos");
+                System.out.println("");
+            }
+        }
+        
+    }
+    
+    
     //metodo
     public void emitirCheques (int numeroCuenta, String nombreBeneficiario, String fecha, long monto, String nombreBanco){
         //Retiramos el dinero destinado al cheque desde el saldo de la cuenta.

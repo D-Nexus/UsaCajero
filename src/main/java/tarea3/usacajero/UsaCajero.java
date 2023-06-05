@@ -22,9 +22,10 @@ public class UsaCajero {
         Scanner entrada = new Scanner(System.in);
         
         //Cuentas
-        cuentas[0] = new CuentaRut(123456789,10000,20000);
-        cuentas[1] = new CuentaCorriente(222222222,5000,10000,"Michelle");
-        cuentas[2] = new CuentaAhorro(333333333,2000,4000,"Alan",0.01);
+        cuentas[0] = new CuentaRut(123456789,10000,5000);
+        cuentas[1] = new CuentaCorriente(222222222,250000,175000,"Michelle");
+        cuentas[2] = new CuentaAhorro(333333333,500000,250000,"Alan",0.01);
+        cuentas[4] = new CuentaVista(444444444,20000,10000);
         
         //Usar las funcionalidades de los cajeros(Humano,Maquina)
         
